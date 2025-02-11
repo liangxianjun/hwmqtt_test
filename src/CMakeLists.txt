@@ -1,7 +1,11 @@
+set(HWMQTT_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include/hwmqtt)
+
+include_directories(${HWMQTT_INCLUDE_DIR}/agentlite)
+include_directories(${HWMQTT_INCLUDE_DIR}/base)
+include_directories(${HWMQTT_INCLUDE_DIR}/util)
+include_directories(${HWMQTT_INCLUDE_DIR}/service)
+include_directories(${HWMQTT_INCLUDE_DIR}/third_party/cjson)
+
 add_executable(test main.cpp)
 
-# include_directories(../3rdparty/huaweicloud-iot-device-sdk-c/include/agentlite)
-
-# include_directories(../3rdparty/huaweicloud-iot-device-sdk-c/include/third_party/cjson)
-# target_include_directories(test PRIVATE 3rdparty/huaweicloud-iot-device-sdk-c/include/agentlite)
-target_link_libraries(test hwmqtt)
+target_link_libraries(test ${PROJECT_SOURCE_DIR}/3rdparty/huaweicloud-iot-device-sdk-c/libhwmqtt.so)
