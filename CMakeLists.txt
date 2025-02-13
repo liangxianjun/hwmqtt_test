@@ -17,4 +17,9 @@ file(GLOB_RECURSE SOURCES "src/*.cc" "src/*.h")
 
 add_executable(mqtt_test ${SOURCES})
 
+# c: client
+# a: async 
+# s: socket
+# eg: mqtt3as -> mqtt3 use "async", use "socket"
+
 target_link_libraries(mqtt_test PRIVATE paho-mqtt3as-static)
