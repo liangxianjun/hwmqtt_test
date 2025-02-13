@@ -12,10 +12,10 @@ extern "C" {
 #include "subscribe.h"
 }
 
-char *g_address = "1994156923.st1.iotda-device.cn-south-1.myhuaweicloud.com"; 
+char *g_address = "1145141919.st1.iotda-device.cn-south-1.myhuaweicloud.com"; 
 char *g_port = "8883";
-char *g_deviceId = "67a95d4c61f92d003ad00c98_test1"; 
-char *g_password = "66b9ae70722101485321a6e3afd3b098";
+char *g_deviceId = "sb"; 
+char *g_password = "sb";
 
 #ifndef CUSTOM_RECONNECT_SWITCH
 static int g_connectFailedTimes = 0;
