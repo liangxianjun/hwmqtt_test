@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/test.dir/main.cpp.o -o test  -Wl,-rpath,/home/lxj/Desktop/test/3rdparty/huaweicloud-iot-device-sdk-c ../../3rdparty/huaweicloud-iot-device-sdk-c/libhwmqtt.so 

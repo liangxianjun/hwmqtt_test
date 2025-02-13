@@ -1,22 +1,25 @@
-cmake_minimum_required(VERSION 3.10)
-project(test)
+cmake_minimum_required(VERSION 3.10.0)
+project(mqtt_test)
 
-# set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_VISIBILITY_PRESET hidden)
+set(CMAKE_CXX_VISIBILITY_INLINES_HIDDEN YES)
+set(CPM_SOURCE_CACHE ${PROJECT_SOURCE_DIR}/.cache/cpm)
 
-set(HWMQTT_LIBRARY ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/huaweicloud-iot-device-sdk-c/libhwmqtt.so)
+include(cmake/get_cpm.cmake)
 
-add_custom_target(build_hwmqtt ALL
-                    COMMAND ${CMAKE_MAKE_PROGRAM}
-                    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/huaweicloud-iot-device-sdk-c/
-                    COMMENT "Original hwmqtt makefile target")
+set(PAHO_BUILD_STATIC 1)
 
+CPMAddPackage("gh:eclipse-paho/paho.mqtt.c#v1.3.14")
 
-add_library(hwmqtt SHARED IMPORTED)
+file(GLOB_RECURSE SOURCES "src/*.cc" "src/*.h")
 
-set_property(TARGET hwmqtt APPEND PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
-set_target_properties(hwmqtt PROPERTIES IMPORTED_LOCATION_NOCONFIG "${HWMQTT_LIBRARY}")
+add_executable(mqtt_test ${SOURCES})
 
-add_dependencies(hwmqtt build_hwmqtt)
+# c: client
+# a: async 
+# s: socket
+# eg: mqtt3as -> mqtt3 use "async", use "socket"
 
-add_subdirectory(src)
-
+target_link_libraries(mqtt_test PRIVATE paho-mqtt3as-static)
