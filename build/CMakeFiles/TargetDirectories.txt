@@ -1,6 +1,2 @@
-/home/lxj/Desktop/test/build/CMakeFiles/build_hwmqtt.dir
-/home/lxj/Desktop/test/build/CMakeFiles/edit_cache.dir
-/home/lxj/Desktop/test/build/CMakeFiles/rebuild_cache.dir
-/home/lxj/Desktop/test/build/src/CMakeFiles/test.dir
-/home/lxj/Desktop/test/build/src/CMakeFiles/edit_cache.dir
-/home/lxj/Desktop/test/build/src/CMakeFiles/rebuild_cache.dir
+/Users/luao/Desktop/hwmqtt_test/build/CMakeFiles/edit_cache.dir
+/Users/luao/Desktop/hwmqtt_test/build/CMakeFiles/rebuild_cache.dir
